@@ -3,7 +3,7 @@ import { MyContext } from '../context/MyContext'
 import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-  const { cartData, addItem, removeItem, total, setCartData } = useContext(MyContext)
+  const { cartData, addItem, removeItem, total, setCartData, setTotal } = useContext(MyContext)
   const navigate = useNavigate()
   if (typeof (cartData) === 'undefined') {
     return <></>
@@ -21,6 +21,8 @@ const Cart = () => {
       return { ...element, cantidad: 0 }
     })
     setCartData(EmptyCart)
+    setTotal(0)
+    console.log(cartData)
   }
 
   const carroVacio = () => {
