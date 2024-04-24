@@ -3,7 +3,7 @@ import { MyContext } from '../context/MyContext'
 import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-  const { cartData, addItem, removeItem, total } = useContext(MyContext)
+  const { cartData, addItem, removeItem, total, setCartData } = useContext(MyContext)
   const navigate = useNavigate()
   if (typeof (cartData) === 'undefined') {
     return <></>
@@ -14,8 +14,14 @@ const Cart = () => {
   }
 
   let cartElements = 0
-
   cartData.forEach((element) => (cartElements = cartElements + element.cantidad))
+
+  const vaciarCarro = () => {
+    const EmptyCart = cartData.map((element) => {
+      return { ...element, cantidad: 0 }
+    })
+    setCartData(EmptyCart)
+  }
 
   const carroVacio = () => {
     return (
@@ -61,7 +67,10 @@ const Cart = () => {
             <hr />
             <div className='text-center'>
               <h2 className='pb-3'>{`Total: ${total !== 0 ? (total / 1000).toFixed(3) : 0}`}</h2>
-              <button type='button ' className='btn btn-secondary'>Ir a Pagar</button>
+              <div className='d-flex justify-content-center column-gap-5'>
+                <button type='button' className='btn btn-secondary'>Ir a Pagar</button>
+                <button type='button' className='btn btn-danger' onClick={vaciarCarro}>Vaciar el carro</button>
+              </div>
             </div>
           </div>
         </div>
