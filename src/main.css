@@ -1,0 +1,30 @@
+header{
+background-image: url("/img-header.jpg");
+height: 216px;
+text-shadow: 0px 0px 8px rgb(255, 255, 255), 0px 0px 10px rgb(255, 255, 255)
+}
+
+.hero-header-text{
+background-color: rgba(235, 235, 235, 0.559);
+padding: 1rem;
+}
+ul{
+ list-style-type: none;
+}
+
+.img-thumbnail{
+height: 60px;
+}
+.navbar{
+height: 60px;}
+
+.cart-qty-button{
+width: 40px;}
+
+.pizza-container
+{
+height: calc(100vh - 80px);
+}
+
+.qty-text
+{width: 50px;}
