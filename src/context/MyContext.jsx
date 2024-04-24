@@ -14,7 +14,11 @@ const MyContextProvider = ({ children }) => {
     const objectIndex = cartDataItem.findIndex(obj => obj.id === id)
     cartDataItem[objectIndex].cantidad += 1
     setCartData(cartDataItem)
-    setTotal(total + (cartDataItem[objectIndex].cantidad * cartDataItem[objectIndex].price))
+    let tempTotal = 0
+    cartDataItem.forEach(element => {
+      tempTotal = tempTotal + (element.cantidad * element.price)
+    })
+    setTotal(tempTotal)
   }
 
   const removeItem = (id) => {
@@ -22,8 +26,12 @@ const MyContextProvider = ({ children }) => {
     const objectIndex = cartDataItem.findIndex(obj => obj.id === id)
 
     if (cartDataItem[objectIndex].cantidad !== 0) {
-      setTotal(total - (cartDataItem[objectIndex].cantidad * cartDataItem[objectIndex].price))
       cartDataItem[objectIndex].cantidad -= 1
+      let tempTotal = 0
+      cartDataItem.forEach(element => {
+        tempTotal = tempTotal + (element.cantidad * element.price)
+      })
+      setTotal(tempTotal)
     }
 
     setCartData(cartDataItem)
