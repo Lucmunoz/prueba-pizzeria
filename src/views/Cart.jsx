@@ -30,7 +30,7 @@ const Cart = () => {
       <>
         <div className='container-fluid col-7'>
           <div className='mt-5 p-5 bg-light-subtle border d-flex flex-row align-items-center'>
-            <img src='public/emptyCart.png' alt='Imagen carro vacío' />
+            <img src='/emptyCart.png' alt='Imagen carro vacío' />
             <div className='d-flex flex-column'>
               <h3>Tu carro está vacío</h3>
               <h5 className='pb-4'>No pierdas tiempo, revisa y disfruta de nuestra amplia oferta de pizzas!</h5>

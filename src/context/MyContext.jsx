@@ -8,17 +8,17 @@ const MyContextProvider = ({ children }) => {
   const [cartData, setCartData] = useState([])
   const [total, setTotal] = useState(0)
 
+  const calculateTotal = (array) => {
+    return array.reduce((acumulator, currentValue) => acumulator + (currentValue.cantidad * currentValue.price), 0)
+  }
+
   const addItem = (id) => {
     // https://stackoverflow.com/questions/70104545/react-ui-not-updating-although-im-changing-the-state
     const cartDataItem = [...cartData]
     const objectIndex = cartDataItem.findIndex(obj => obj.id === id)
     cartDataItem[objectIndex].cantidad += 1
     setCartData(cartDataItem)
-    let tempTotal = 0
-    cartDataItem.forEach(element => {
-      tempTotal = tempTotal + (element.cantidad * element.price)
-    })
-    setTotal(tempTotal)
+    setTotal(calculateTotal(cartDataItem))
   }
 
   const removeItem = (id) => {
@@ -27,11 +27,7 @@ const MyContextProvider = ({ children }) => {
 
     if (cartDataItem[objectIndex].cantidad !== 0) {
       cartDataItem[objectIndex].cantidad -= 1
-      let tempTotal = 0
-      cartDataItem.forEach(element => {
-        tempTotal = tempTotal + (element.cantidad * element.price)
-      })
-      setTotal(tempTotal)
+      setTotal(calculateTotal(cartDataItem))
     }
 
     setCartData(cartDataItem)
