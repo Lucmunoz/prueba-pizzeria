@@ -6,7 +6,7 @@ import { Inicio, Detalle, NotFound, Cart } from './views'
 const App = () => {
   return (
     <>
-      <div className='container-fluid bg-primary vh-100 overflow-hidden p-0 m-0'>
+      <div className='container-fluid border bg-primary vh-100 overflow-hidden p-0 m-0'>
         <NavBar />
         <Routes>
           <Route path='/' element={<Inicio />} />

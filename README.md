@@ -4,7 +4,7 @@ HACIENDO CAMBIOS DESDE LA RAMA PAULA-asd
 
 hola
 
-cambios 3 en readme de paula
+cambios 3 en readme de paula -ok
 
 
 cambios 4 desde Paula
